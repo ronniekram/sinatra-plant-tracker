@@ -1,2 +1,11 @@
 <!-- add logout option at the bottom of every page-->
 <!-- Show user and their list of plants as links to /plant/:id -->
+
+<p> Here are your plants, <%= @user.username %>
+<% @user.plants.each do |plant| %>
+<p>Choose a plant to see more information!</p>
+  <div>
+    <a href="/plants/<%= plant.id%>">
+    <%= plant.name %></a>
+  </div>
+<% end %>

@@ -1,3 +1,17 @@
 <!-- add logout option at the bottom of every page-->
 <!-- show information for a single plant -->
 <!-- add edit/delete buttons-->
+
+<h4><%= @plant.name %></h4>
+<p>Light Requirements: <%= @plant.light %></p>
+<p>Water Requirements: <%= @plant.water %></p>
+
+<form method="post" action="/plants/<%=@plant.id%>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="My plant died.">
+  <input type="button" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';" value="Edit Plant Information"/>
+</form>
+
+<!-- <a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet </a> <br><br> -->
+
+<a href="/plants">Back to your plants</a>

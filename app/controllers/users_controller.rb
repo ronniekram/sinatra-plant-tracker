@@ -5,18 +5,21 @@ class UsersController < ApplicationController
     erb :'users/show'
   end
 
-  get '/signup' do 
+  get '/signup' do
+    erb :'/users/new_user' 
   end 
 
   post '/signup' do 
   end 
 
-  get '/login' do 
+  get '/login' do
+    erb :'/users/login' 
   end 
 
   post '/login' do 
   end 
 
-  get '/logout' do 
+  get '/logout' do
+    @session.clear 
   end 
 end 
