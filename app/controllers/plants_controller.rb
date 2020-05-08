@@ -22,11 +22,11 @@ class PlantsController < ApplicationController
       if params[:content] == ""
         redirect to "/plants/new"
       else
-        @tweet = current_user.tweets.build(content: params[:content])
-        if @tweet.save
-          redirect to "/tweets/#{@tweet.id}"
+        @plant = current_user.plants.build(content: params[:content])
+        if @plant.save
+          redirect to "/plants/#{@plant.id}"
         else
-          redirect to "/tweets/new"
+          redirect to "/plants/new"
         end
       end
     else
@@ -35,15 +35,49 @@ class PlantsController < ApplicationController
   end 
 
   get '/plants/:id' do
+    if logged_in?
+      @plant = Plant.find_by_id(params[:id])
+      erb :'/plants/show_plant'
+    else 
+      redirect '/login'
+    end 
   end 
 
   get '/plants/:id/edit' do 
-    erb :'/plants/edit_plant'
+    if logged_in?
+      @plant = Plant.find(params[:id])
+      erb :'/plants/edit_plant'
+    else 
+      redirect '/login'
+    end
   end 
 
   patch '/plants/:id' do 
+    @plant = Plant.find_by_id(params[:id])
+    if logged_in?
+      if params[:content] == ""
+        redirect "/plants/#{@plant.id}/edit"
+      else 
+        @plant.update(content: params[:content])
+        redirect "/plants/#{@plant.id}"
+      end 
+    else 
+        redirect '/login'
+    end 
   end 
 
   delete '/plants/:id' do 
-  end 
+    @plant = Plant.find_by_id(params[:id])
+    if logged_in?
+      if @plant.user_id == @current_user.id
+        @plant.delete
+        redirect to '/plants'
+      else 
+        redirect to '/plants'
+      end 
+    else  
+      redirect '/login'
+    end
+  end
+
 end 
