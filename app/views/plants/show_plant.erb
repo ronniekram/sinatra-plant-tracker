@@ -2,15 +2,35 @@
 <!-- show information for a single plant -->
 <!-- add edit/delete buttons-->
 
-<h4><%= @plant.name %></h4>
-<p>Light Requirements: <%= @plant.light %></p>
-<p>Water Requirements: <%= @plant.water %></p>
+<div class="container">
+  <header><img src="images/monstera.jpeg" class="img-responsive main-image"></header>
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Eleplant - Never Forget Your Plants Again!</h2>
 
-<form method="post" action="/plants/<%=@plant.id%>">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="My plant died.">
-  <input type="button" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';" value="Edit Plant Information"/>
-</form>
+    <div class="content">
+      <h4><%= @plant.name %></h4>
+      <p>Light Requirements: <%= @plant.light %></p>
+      <p>Water Requirements: <%= @plant.water %></p>
+      <p>Date Last Watered: <%= @plant.last_date %></p> 
 
+      <form method="post" action="/plants/<%=@plant.id%>">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="My plant died.">
+        <input type="button" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';" value="Edit Plant Information"/>
+      </form>
 
-<a href="/plants">Back to your plants</a> || <a href="/logout">Logout</a>
+      <a href="/plants">Back to your plants</a> 
+    </div>
+
+    <div class="sidebar">
+      <h3>Environment</h3>
+      <ul>
+        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
+        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
+        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
+        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
+      </ul>
+    </div>
+
+  </div>
+</div>

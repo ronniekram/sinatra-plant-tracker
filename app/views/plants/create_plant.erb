@@ -2,13 +2,33 @@
 <!--  plant/new form to create plant: post to plants -->
 <!-- Make light and water requirements from drop down menu -->
 
-<h2>Add a plant and care information: </h2>
-<form action="/plants" method="POST">
-  <p>Plant Name: <input type="text" name="name"></p>
-  <p>Light: <input type="text" name="light"></p>
-  <p>Water: <input type="text" name="water"></p>
-  <input class="btn btn-primary" type="submit" value="submit">
-</form>
+<div class="container">
+  <header><img src="images/monstera.jpeg" class="img-responsive main-image"></header>
+  <div class="col-md-8 col-md-offset-2">
+    <h2>Eleplant - Never Forget Your Plants Again!</h2>
 
+    <div class="content">
+      <h2>Add a plant and care information: </h2>
+      <form action="/plants" method="POST">
+      <p>Plant Name: <input type="text" name="name"></p>
+      <p>Light: <input type="text" name="light"></p>
+      <p>Water: <input type="text" name="water"></p>
+      <p>Last Date Watered: <input type="text" name="last_date"> </p>
+      <input class="btn btn-primary" type="submit" value="submit">
+    </form>
 
-<a href="/plants">Back to your plants</a> || <a href="/logout">Logout</a>
+      <a href="/plants">Back to your plants</a> 
+    </div>
+
+    <div class="sidebar">
+      <h3>Environment</h3>
+      <ul>
+        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
+        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
+        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
+        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
