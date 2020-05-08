@@ -3,12 +3,12 @@
 <!-- add option to delete plant-->
 
 <div class="container">
-  <header><img src="images/monstera.jpeg" class="img-responsive main-image"></header>
+  <header><img src="../images/monstera.jpeg" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Eleplant - Never Forget Your Plants Again!</h2>
 
     <div class="content">
-      <h2> Change Plant Information: </h2>
+      <h3> Change Plant Information: </h3>
 
       <form method="post" action="/plants/<%=@plant.id%>">
         <input id="hidden" type="hidden" name="_method" value="PATCH">
@@ -16,8 +16,8 @@
         <p>Light: <input type="text" name="light" value="<%= @plant.light %>"></p>
         <p>Water: <input type="text" name="water" value="<%= @plant.water %>" ></p>
         <p>Last Date Watered: <input type="text" name="last_date" value="<%= @plant.last_date %>" ></p>
-        <input type="submit" value="submit">
-      </form>
+        <button type="button">Submit Change</button>
+      </form> <br>
 
       <a href="/plants">Back to your plants</a> 
     </div>

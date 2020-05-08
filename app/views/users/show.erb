@@ -3,16 +3,16 @@
 
 
 <div class="container">
-  <header><img src="images/monstera.jpeg" class="img-responsive main-image"></header>
+  <header><img src="../images/monstera.jpeg" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2><%= @user.username %>'s Plants</h2>
+    <h2><%= @current_user.username %>'s Plants</h2>
     <div class="plants">
       <p>Choose a plant to see more information!</p>
       <ul>
-        <% @user.plants.each do |plant| %>
+        <% @current_user.plants.each do |plant| %>
             <li><a href="/plants/<%= plant.id%>"> <%= plant.name %></a></li>
         <% end %>    
-      </ul>
+      </ul> <br>
       <a href="/plants">Back to your plants</a>
     </div>
 

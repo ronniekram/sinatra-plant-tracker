@@ -3,20 +3,20 @@
 <!-- add edit/delete buttons-->
 
 <div class="container">
-  <header><img src="images/monstera.jpeg" class="img-responsive main-image"></header>
+  <header><img src="../images/monstera.jpeg" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Eleplant - Never Forget Your Plants Again!</h2>
 
     <div class="content">
-      <h4><%= @plant.name %></h4>
+      <h3><%= @plant.name %></h3>
       <p>Light Requirements: <%= @plant.light %></p>
       <p>Water Requirements: <%= @plant.water %></p>
       <p>Date Last Watered: <%= @plant.last_date %></p> 
 
       <form method="post" action="/plants/<%=@plant.id%>">
         <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="My plant died.">
-        <input type="button" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';" value="Edit Plant Information"/>
+        <button type="submit">My Plant Died.</button>
+        <button type="submit" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';">Edit Plant</button> <br><br>
       </form>
 
       <a href="/plants">Back to your plants</a> 

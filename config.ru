@@ -7,5 +7,5 @@ end
 use Rack::MethodOverride
 use UsersController
 use PlantsController
-use WishlistController
+#use WishlistController
 run ApplicationController

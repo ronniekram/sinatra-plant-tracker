@@ -4,7 +4,7 @@ class CreatePlants < ActiveRecord::Migration
       t.string :name
       t.string :light
       t.string :water
-      t.timestamp :last_date
+      t.string :last_date
       t.integer :user_id
     end 
   end

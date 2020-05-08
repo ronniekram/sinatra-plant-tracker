@@ -3,19 +3,19 @@
 <!-- Make light and water requirements from drop down menu -->
 
 <div class="container">
-  <header><img src="images/monstera.jpeg" class="img-responsive main-image"></header>
+  <header><img src="../images/monstera.jpeg" class="img-responsive main-image"></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Eleplant - Never Forget Your Plants Again!</h2>
 
     <div class="content">
-      <h2>Add a plant and care information: </h2>
+      <h3>Add a plant and care information: </h3>
       <form action="/plants" method="POST">
       <p>Plant Name: <input type="text" name="name"></p>
       <p>Light: <input type="text" name="light"></p>
       <p>Water: <input type="text" name="water"></p>
       <p>Last Date Watered: <input type="text" name="last_date"> </p>
-      <input class="btn btn-primary" type="submit" value="submit">
-    </form>
+      <button type="button">Add Plant!</button>
+    </form> <br>
 
       <a href="/plants">Back to your plants</a> 
     </div>
