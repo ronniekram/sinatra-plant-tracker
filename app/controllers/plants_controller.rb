@@ -19,7 +19,19 @@ class PlantsController < ApplicationController
 
   post '/plants' do
     if logged_in?
-    end  
+      if params[:content] == ""
+        redirect to "/plants/new"
+      else
+        @tweet = current_user.tweets.build(content: params[:content])
+        if @tweet.save
+          redirect to "/tweets/#{@tweet.id}"
+        else
+          redirect to "/tweets/new"
+        end
+      end
+    else
+      redirect to '/login'
+    end
   end 
 
   get '/plants/:id' do
