@@ -22,7 +22,7 @@ class PlantsController < ApplicationController
       if params[:content] == ""
         redirect to "/plants/new"
       else
-        @plant = current_user.plants.build(content: params[:content])
+        @plant = current_user.plants.build(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
         if @plant.save
           redirect to "/plants/#{@plant.id}"
         else
@@ -58,7 +58,7 @@ class PlantsController < ApplicationController
       if params[:content] == ""
         redirect "/plants/#{@plant.id}/edit"
       else 
-        @plant.update(content: params[:content])
+        @plant.update(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
         redirect "/plants/#{@plant.id}"
       end 
     else 

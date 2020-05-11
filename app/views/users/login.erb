@@ -1,28 +1,22 @@
 <!-- create login form -->
 
 <div class="container">
-  <header><img src="../images/monstera.jpeg" class="img-responsive main-image"></header>
+  <header><img src="../images/monstera.jpeg" class="header"></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Eleplant - Never Forget Your Plants Again!</h2>
 
     <div class="content">
-      <h3>Login to PlantTracker!</h3>
+      <h3>Login to Eleplant!</h3>
       <form method="post" action="/login">
-      <input type="text" name="username" placeholder="Username:">
-      <input type="text" name="password" placeholder="Password:">
+      Username: <input type="text" name="username"><br>
+      Password: <input type="password" name="password"><br>
 
       <button type="submit">Login</button>
       </form>
     </div>
 
     <div class="sidebar">
-      <h3>Environment</h3>
-      <ul>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
+      <img src="../images/plants.jpg" class="sidebar">
     </div>
 
   </div>
