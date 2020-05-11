@@ -1,15 +1,19 @@
 <div class="container">
   <header><img src="../images/monstera.jpeg" class="header"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2><%= @current_user.username %>'s Wishlist</h2>
+    <h2><%= @current_user.username %>'s Wishlist <a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a></h2>
     <div class="plants">
-      <p>Choose a plant to edit or delete: </p>
       <ul>
-        <% @current_user.wishlists.each do |item| %>
-            <li><a href="/wishlist/<%= item.id%>"> <%= item.item_name %></a></li>
-        <% end %>    
+        <% @current_user.wishlist.each do |item| %>
+          <form method="post" action="/wishlist/<%=item.id%>">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <li> <%= item.item_name %>
+            <button type="submit">Remove</button>
+            </li>
+          </form> <br>
+        <% end %>
       </ul> <br>
-      <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
+        <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
     </div>
 
     <div class="sidebar">

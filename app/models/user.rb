@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :plants
-  has_many :wishlists
+  has_many :wishlist
 
   has_secure_password
 

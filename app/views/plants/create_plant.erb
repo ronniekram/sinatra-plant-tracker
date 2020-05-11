@@ -5,15 +5,16 @@
 <div class="container">
   <header><img src="../images/monstera.jpeg" class="header"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2>Eleplant - Never Forget Your Plants Again!</h2>
+    <h2>Eleplant - Never Forget Your Plants Again! <a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h2>
 
     <div class="content">
       <h3>Add a plant and care information: </h3>
       <form action="/plants" method="POST">
-      <p>Plant Name: <input type="text" name="name"></p>
+      <p>Plant Name: <input type="text" name="name" required></p>
       <p>Light: <input type="text" name="light"></p>
       <p>Water: <input type="text" name="water"></p>
-      <p>Last Date Watered: <input type="text" name="last_date"> </p>
+      <!-- input type="date" -->
+      <p>Last Date Watered: <input type="date" name="last_date"> </p>
       <button type="submit">Add Plant!</button>
     </form> <br>
 

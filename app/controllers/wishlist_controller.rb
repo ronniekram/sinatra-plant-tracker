@@ -19,7 +19,7 @@ class WishlistController < ApplicationController
   
   post '/wishlist' do
     if logged_in?
-      if params[:item].empty?
+      if params[:item] == ""
         redirect '/wishlist/new'
       else 
         @item = current_user.wishlist.build(item_name: params[:item_name])
@@ -38,30 +38,6 @@ class WishlistController < ApplicationController
     if logged_in?
       @item = Wishlist.find_by_id(params[:id])
       erb :'/wishlist/show_item'
-    else 
-      redirect '/login'
-    end 
-  end 
-  
-  get '/wishlist/:id/edit' do 
-    if logged_in?
-      @item = Wishlist.find_by_id(params[:id])
-      erb :'/wishlist/edit_item'
-    else 
-      redirect '/login'
-    end 
-  end 
-  
-  patch '/wishlist/:id' do 
-    @item = Wishlist.find_by_id(params[:id])
-
-    if logged_in?
-      if params[:item_name].empty?
-        redirect "/wishlist/#{@item.id}/edit"
-      else 
-        @item.update(item_name: params[:item_name])
-        redirect "/wishlist/#{@item.id}"
-      end 
     else 
       redirect '/login'
     end 

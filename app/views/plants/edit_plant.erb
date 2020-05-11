@@ -5,21 +5,21 @@
 <div class="container">
   <header><img src="../images/monstera.jpeg" class="header"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2>Eleplant - Never Forget Your Plants Again!</h2>
+    <h2>Eleplant - Never Forget Your Plants Again! <a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h2>
 
     <div class="content">
       <h3> Change Plant Information: </h3>
 
       <form method="post" action="/plants/<%=@plant.id%>">
         <input id="hidden" type="hidden" name="_method" value="PATCH">
-        <p>Plant Name: <input type="text" name="name" value="<%= @plant.name %>"></p>
+        <p>Plant Name: <input type="text" name="name" value="<%= @plant.name %>" required></p>
         <p>Light: <input type="text" name="light" value="<%= @plant.light %>"></p>
-        <p>Water: <input type="text" name="water" value="<%= @plant.water %>" ></p>
-        <p>Last Date Watered: <input type="text" name="last_date" value="<%= @plant.last_date %>" ></p>
+        <p>Water: <input type="text" name="water" value="<%= @plant.water %>"></p>
+        <!-- input type="date" -->
+        <p>Last Date Watered: <input type="date" name="last_date" value="<%= @plant.last_date %>" ></p>
         <button type="submit">Submit Change</button>
       </form> <br>
-
-      <a href="/plants">Back to your plants</a> 
+ 
     </div>
 
     <div class="sidebar">
