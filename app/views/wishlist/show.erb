@@ -1,0 +1,20 @@
+<div class="container">
+  <header><img src="../images/monstera.jpeg" class="header"></header>
+  <div class="col-md-8 col-md-offset-2">
+    <h2><%= @current_user.username %>'s Wishlist</h2>
+    <div class="plants">
+      <p>Choose a plant to edit or delete: </p>
+      <ul>
+        <% @current_user.wishlists.each do |item| %>
+            <li><a href="/wishlist/<%= item.id%>"> <%= item.item_name %></a></li>
+        <% end %>    
+      </ul> <br>
+      <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
+    </div>
+
+    <div class="sidebar">
+      <img src="../images/plants.jpg" class="side">
+    </div>
+
+  </div>
+</div>

@@ -19,18 +19,18 @@ class PlantsController < ApplicationController
 
   post '/plants' do
     if logged_in?
-      if params[:content] == ""
-        redirect to "/plants/new"
+      if params[:name].empty?
+        redirect '/plants/new'
       else
         @plant = current_user.plants.build(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
         if @plant.save
-          redirect to "/plants/#{@plant.id}"
+          redirect "/plants/#{@plant.id}"
         else
-          redirect to "/plants/new"
+          redirect '/plants/new'
         end
       end
     else
-      redirect to '/login'
+      redirect '/login'
     end
   end 
 
@@ -54,8 +54,9 @@ class PlantsController < ApplicationController
 
   patch '/plants/:id' do 
     @plant = Plant.find_by_id(params[:id])
+    
     if logged_in?
-      if params[:content] == ""
+      if params[:name].empty?
         redirect "/plants/#{@plant.id}/edit"
       else 
         @plant.update(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
@@ -68,12 +69,13 @@ class PlantsController < ApplicationController
 
   delete '/plants/:id' do 
     @plant = Plant.find_by_id(params[:id])
+
     if logged_in?
       if @plant.user_id == @current_user.id
         @plant.delete
-        redirect to '/plants'
+        redirect '/plants'
       else 
-        redirect to '/plants'
+        redirect '/plants'
       end 
     else  
       redirect '/login'

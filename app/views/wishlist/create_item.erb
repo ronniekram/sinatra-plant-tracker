@@ -1,18 +1,16 @@
-<!-- create login form -->
-
 <div class="container">
   <header><img src="../images/monstera.jpeg" class="header"></header>
   <div class="col-md-8 col-md-offset-2">
     <h2>Eleplant - Never Forget Your Plants Again!</h2>
 
     <div class="content">
-      <h3>Login to Eleplant!</h3>
-      <form method="post" action="/login">
-      Username: <input type="text" name="username"><br>
-      Password: <input type="password" name="password"><br>
+      <h3>Add to your wishlist: </h3>
+      <form action="/wishlist" method="POST">
+      <p>Plant Name: <input type="text" name="item_name"></p>
+      <button type="submit">Add Plant!</button>
+    </form> <br>
 
-      <button type="submit">Login</button>
-      </form>
+      <a href="/wishlist">Back to your wishlist</a> 
     </div>
 
     <div class="sidebar">

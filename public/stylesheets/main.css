@@ -53,12 +53,6 @@
     margin-bottom: 18px;
   }
 
-  img.header {
-    border-radius: 30px;
-    max-width: 100%;
-    height: auto;
-    opacity: 0.7;
-  }
   a {
     text-decoration: none;
     color: #404f3b;
@@ -67,6 +61,21 @@
 
   ul {
     list-style-type: square;
+  }
+
+  img.header {
+    border-radius: 30px;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.7;
+  }
+
+  img.side {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.9;
+    border: 1px solid #111D13;
   }
 
   .main {

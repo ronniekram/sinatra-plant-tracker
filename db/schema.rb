@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20200508022347) do
   end
 
   create_table "wishlist", force: :cascade do |t|
-    t.string  "plant_name"
+    t.string  "item_name"
     t.integer "user_id"
   end
 
