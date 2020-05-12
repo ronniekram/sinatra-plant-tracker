@@ -1,10 +1,4 @@
 class UsersController < ApplicationController 
-
-  get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :'users/show'
-  end
-
   get '/signup' do
     if logged_in?
       redirect '/plants'
@@ -50,6 +44,11 @@ class UsersController < ApplicationController
     else
       redirect '/'
     end
+  end
+
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
+    erb :"/users/#{@user.slug}"
   end
    
 end 

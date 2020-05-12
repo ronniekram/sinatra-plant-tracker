@@ -1,5 +1,4 @@
 class WishlistController < ApplicationController 
-
   get '/wishlist' do 
     if logged_in?
       @wishlist = Wishlist.all

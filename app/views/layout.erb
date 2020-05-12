@@ -15,7 +15,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   </head>
   <body>
+
+
     <div class="wrapper">
+
+      <% flash.keys.each do |type| %>
+        <div class="flash <%= type %>">
+          <%= flash[type] %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      <% end %>
 
         <%= yield %>
 
