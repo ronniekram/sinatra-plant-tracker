@@ -16,21 +16,18 @@ class WishlistController < ApplicationController
     end  
   end 
   
-  post '/wishlist' do
+  post '/wishlist' do 
+    @item = current_user.wishlist.build(item_name: params[:item_name])
     if logged_in?
-      if params[:item] == ""
-        redirect '/wishlist/new'
-      else 
-        @item = current_user.wishlist.build(item_name: params[:item_name])
-        if @item.save
-          redirect "/wishlist/#{@item.id}" 
-        else 
-          redirect '/plants/new'
-        end 
-      end
+      if params[:item_name] !="" && @item.save
+        redirect '/wishlist'
+      else
+        flash[:alert] = "Item not added. Please try again."
+        redirect '/wishlist/new'  
+      end 
     else 
       redirect '/login'
-    end  
+    end 
   end 
   
   get '/wishlist/:id' do 
@@ -40,16 +37,17 @@ class WishlistController < ApplicationController
     else 
       redirect '/login'
     end 
-  end 
+  end
   
   delete '/wishlist/:id' do 
     @item = Wishlist.find_by_id(params[:id])
 
     if logged_in?
-      if @item.user_id == @current_user.id
+      if @item.user_id == current_user.id
         @item.delete
         redirect '/wishlist'
       else 
+        flash[:alert] = "This isn't your wishlist!"
         redirect '/wishlist'
       end
     else 

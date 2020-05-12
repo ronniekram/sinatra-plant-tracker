@@ -48,7 +48,7 @@ class PlantsController < ApplicationController
       if @plant.user_id == current_user.id
         erb :'/plants/edit_plant'
       else  
-        flash[:alert] = "This isn't your plant!"
+        flash[:alert] = "That isn't your plant!"
         redirect '/plants'
       end
     else 
@@ -65,7 +65,7 @@ class PlantsController < ApplicationController
         @plant.update(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
         redirect "/plants/#{@plant.id}"
       else 
-        flash[:alert] = "This isn't your plant!"
+        flash[:alert] = "That isn't your plant!"
         redirect '/plants'
       end 
     else 
@@ -81,7 +81,7 @@ class PlantsController < ApplicationController
         @plant.delete
         redirect '/plants'
       else 
-        flash[:alert] = "This isn't your plant!"
+        flash[:alert] = "That isn't your plant!"
         redirect '/plants'
       end 
     else  

@@ -5,12 +5,7 @@
     <div class="plants">
       <ul>
         <% @current_user.wishlist.each do |item| %>
-          <form method="post" action="/wishlist/<%=item.id%>">
-            <input id="hidden" type="hidden" name="_method" value="DELETE">
-            <li> <%= item.item_name %>
-            <button type="submit">Remove</button>
-            </li>
-          </form> <br>
+          <li> <a href="/wishlist/<%=item.id%>"> <%= item.item_name %> </a></li>
         <% end %>
       </ul> <br>
         <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>

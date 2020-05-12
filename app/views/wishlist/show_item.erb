@@ -1,22 +1,30 @@
 <div class="container">
   <header><img src="../images/monstera.jpeg" class="header"></header>
   <div class="col-md-8 col-md-offset-2">
-    <h2>Eleplant - Never Forget Your Plants Again! <a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h2>
-
-    <div class="content">
-      <h3><%= @item.item_name %></h3>
-
-      <form method="post" action="/wishlist/<%=@item.id%>">
-        <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <button type="submit">Remove</button>
-      </form> <br>
-      <button type="submit" onclick="window.location.href = '/wishlist/<%=@item.id%>/edit';">Edit</button> <br>
-
-      <a href="/wishlist">Back to your wishlist</a> 
+    <h2><%= @current_user.username %>'s Wishlist <a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a></h2>
+    <div class="plants">
+      <ul>
+        <% @current_user.wishlist.each do |item| %>
+          <li> <a href="/wishlist/<%=item.id%>"> <%= item.item_name %> </a></li>
+        <% end %>
+      </ul> <br>
+        <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
     </div>
 
     <div class="sidebar">
-      <img src="../images/plants.jpg" class="side">
+      <%= @item.item_name %>
+
+      <form method="post" action="/wishlist/<%=@item.id%>">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <button type="submit">Remove From Wishlist</button>
+      </form>
+
+      <form method="post" action="/wishlist/<%=@item.id%>">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <!-- current_user.plants.build(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date]) -->
+        <button type="submit">Add to My Plants</button>
+      </form>
+
     </div>
 
   </div>

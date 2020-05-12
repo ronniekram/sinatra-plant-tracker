@@ -33,12 +33,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/plants'
     else 
+      flash[:alert] = "That didn't work. Please try logging in again."
       redirect '/'
     end 
   end 
 
   get '/logout' do
     if logged_in? 
+      flash[:alert] = "You've been logged out."
       session.destroy
       redirect '/login'
     else
