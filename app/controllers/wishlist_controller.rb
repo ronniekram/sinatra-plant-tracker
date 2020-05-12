@@ -55,4 +55,23 @@ class WishlistController < ApplicationController
     end 
   end
 
+  delete '/wishlist-create/:id' do 
+    @item = Wishlist.find_by_id(params[:id])
+    @plant = current_user.plants.build(name: params[:name], user_id: params[:user_id])
+    @plant.name = @item.item_name
+    @plant.user_id = @item.user_id
+
+    if logged_in?
+      if @item.user_id == current_user.id && @plant.save
+        @item.delete
+        redirect "/plants/#{@plant.id}"
+      else 
+        flash[:alert] = "This isn't your wishlist!"
+        redirect '/wishlist'
+      end
+    else 
+      redirect '/login'
+    end 
+  end
+
 end 
