@@ -71,6 +71,10 @@
     padding: 1%;
   }
 
+  input {
+    margin-bottom: 5px;
+  }
+
   .wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);

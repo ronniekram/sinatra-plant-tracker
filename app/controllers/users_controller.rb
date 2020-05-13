@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     if logged_in? 
       flash[:alert] = "You've been logged out."
       session.destroy
-      redirect '/login'
+      redirect '/'
     else
       redirect '/'
     end
