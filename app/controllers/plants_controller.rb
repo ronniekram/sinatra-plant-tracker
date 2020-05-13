@@ -18,16 +18,13 @@ class PlantsController < ApplicationController
 
   post '/plants' do
     if logged_in?
-      #if params[:name].empty?
-        #redirect '/plants/new'
-      #else
-      @plant = current_user.plants.build(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
-        if @plant.save
-          redirect "/plants/#{@plant.id}"
+      #plant = current_user.plants.build(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
+      plant = current_user.plants.build(params)
+        if plant.save
+          redirect "/plants/#{plant.id}"
         else
           redirect '/plants/new'
         end
-      #end
     else
       redirect '/login'
     end
@@ -35,16 +32,20 @@ class PlantsController < ApplicationController
 
   get '/plants/:id' do
     if logged_in?
-      @plant = Plant.find_by_id(params[:id])
-      erb :'/plants/show_plant'
+      @plant = current_user.plants.find_by_id(params[:id])
+      if @plant
+        erb :'/plants/show_plant'
+      else 
+        redirect "/plants"
+      end 
     else 
       redirect '/login'
     end 
   end 
 
   get '/plants/:id/edit' do 
-    @plant = Plant.find(params[:id])
     if logged_in?
+      @plant = current_user.plants.find_by_id(params[:id])
       if @plant.user_id == current_user.id
         erb :'/plants/edit_plant'
       else  
@@ -58,12 +59,12 @@ class PlantsController < ApplicationController
 
 
   patch '/plants/:id' do 
-    @plant = Plant.find_by_id(params[:id])
+    plant = current_user.plants.find_by_id(params[:id])
     
     if logged_in?
-      if @plant.user_id == current_user.id
-        @plant.update(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
-        redirect "/plants/#{@plant.id}"
+      if plant.user_id == current_user.id
+        plant.update(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
+        redirect "/plants/#{plant.id}"
       else 
         flash[:alert] = "Hey! These aren't your plants! Get out of here!"
         redirect '/plants'
@@ -74,11 +75,11 @@ class PlantsController < ApplicationController
   end
 
   delete '/plants/:id' do
-    @plant = Plant.find_by_id(params[:id])
+    plant = current_user.plants.find_by_id(params[:id])
 
     if logged_in?
-      if @plant.user_id == current_user.id
-        @plant.delete
+      if plant.user_id == current_user.id
+        plant.delete
         redirect '/plants'
       else 
         flash[:alert] = "Hey! These aren't your plants! Get out of here!"
