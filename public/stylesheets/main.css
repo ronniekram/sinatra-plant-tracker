@@ -13,6 +13,7 @@
 
   body {
     background-color: #c9b1bd;
+    background-image: url("../images/bg.png");
     color: black;
     font-family: 'Montserrat', sans-serif;
     line-height: 18px;
