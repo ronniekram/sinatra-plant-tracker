@@ -11,9 +11,10 @@ class UsersController < ApplicationController
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect to '/signup'
     else
-      @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
-      @user.save
-      session[:user_id] = @user.id
+      #@user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+      user = User.new(params)
+      user.save
+      session[:user_id] = user.id
       redirect to '/plants'
     end
   end
@@ -27,10 +28,10 @@ class UsersController < ApplicationController
   end
 
   post '/login' do 
-    @user = User.find_by(username: params[:username])
+    user = User.find_by(username: params[:username])
 
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect '/plants'
     else 
       flash[:alert] = "That didn't work. Please try logging in again."
