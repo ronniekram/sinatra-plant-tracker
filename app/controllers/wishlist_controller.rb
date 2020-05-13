@@ -47,7 +47,7 @@ class WishlistController < ApplicationController
         @item.delete
         redirect '/wishlist'
       else 
-        flash[:alert] = "This isn't your wishlist!"
+        flash[:alert] = "Hey! That isn't your wishlist! Shoo!"
         redirect '/wishlist'
       end
     else 
@@ -66,7 +66,7 @@ class WishlistController < ApplicationController
         @item.delete
         redirect "/plants/#{@plant.id}"
       else 
-        flash[:alert] = "This isn't your wishlist!"
+        flash[:alert] = "Hey! That isn't your wishlist! Shoo!"
         redirect '/wishlist'
       end
     else 

@@ -95,6 +95,13 @@
     overflow: hidden; 
   }
 
+  .header img {
+    border-radius: 30px;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.7;
+  }
+
   .nav { 
     grid-area: 3 / 1 / 4 / 6;
     height: auto; 
@@ -124,27 +131,20 @@
     height: auto;
   }
 
-  .footer { 
-    grid-area: 8 / 1 / 9 / 6; 
-    border-top: 2px solid #404f3b;
-    margin-top: 20px;
-    padding-top: 10px;
-    height: auto;
-  }
-
-  .header img {
-    border-radius: 30px;
-    max-width: 100%;
-    height: auto;
-    opacity: 0.7;
-  }
-
   .sidebar img {
     border-radius: 15px;
     max-width: 100%;
     height: auto;
     opacity: 0.8;
     border: 1px solid #111D13;
+  }
+
+  .footer { 
+    grid-area: 8 / 1 / 9 / 6; 
+    border-top: 2px solid #404f3b;
+    margin-top: 20px;
+    padding-top: 10px;
+    height: auto;
   }
 
   .left {
@@ -177,6 +177,15 @@
     height: auto;
     float: right;
     text-align: center;
+    margin: auto;
+  }
+
+  .flash {
+    background-color: #8fa089;
+    color: #111D13;
+    font-size: 18px;
+    width: 100%;
+    height: auto;
     margin: auto;
   }
 

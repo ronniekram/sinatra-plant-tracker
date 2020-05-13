@@ -1,3 +1,4 @@
+<% if !logged_in? %>
 <div class="nav"> 
   <h3>Eleplant - Never Forget Your Plants Again!</h3>
 </div>
@@ -15,3 +16,6 @@
 <div class="sidebar"> 
   <img src="../images/plants.jpg">
 </div>
+<% else %>
+  <% redirect "/plants"%>
+<% end %>
