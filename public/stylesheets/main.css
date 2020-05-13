@@ -188,10 +188,12 @@
   .flash {
     background-color: #8fa089;
     color: #111D13;
+    border: 1px solid #111D13;
     font-size: 18px;
     width: 100%;
-    height: auto;
-    margin: auto;
+    height: 2rem;
+    padding-top: 10px;
+    padding-left: 10px;
   }
 
 
