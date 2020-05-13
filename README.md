@@ -39,3 +39,5 @@ Bug reports and pull requests are welcome on GitHub [here](https://github.com/ro
     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+## Credit Where Credit is Due
+Images found [here](https://plants.ces.ncsu.edu/plants/monstera-deliciosa/) and [here](https://www.cosmopolitan.com/lifestyle/g29824803/small-indoor-house-plants/).
