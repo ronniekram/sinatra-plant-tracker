@@ -2,26 +2,32 @@
 <!-- show information for a single plant -->
 <!-- add edit/delete buttons-->
 
-  <div class="col-md-8 col-md-offset-2">
-    <h2>Eleplant - Never Forget Your Plants Again! <a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h2>
-
-    <div class="content">
-      <h3><%= @plant.name %></h3>
-      <p>Light Requirements: <%= @plant.light %></p>
-      <p>Water Requirements: <%= @plant.water %></p>
-      <p>Date Last Watered: <%= @plant.last_date %></p> 
-
-      <form method="post" action="/plants/<%=@plant.id%>">
-        <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <button type="submit">My Plant Died.</button>
-      </form> <br>
-      <button type="submit" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';">Edit Plant</button> <br>
-
-      <a href="/plants">Back to your plants</a> 
-    </div>
-
-    <div class="sidebar">
-      <img src="../images/plants.jpg" class="side">
-    </div>
-
+<div class="nav"> 
+  <div class="left">
+    <h3>Eleplant - Never Forget Your Plants Again! </h3> 
   </div>
+
+  <div class="right">
+    <h3><a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h3>
+  </div>
+</div>
+
+<div class="body"> 
+  <h3> Change Plant Information: </h3>
+
+    <h5><%= @plant.name %></h5>
+    <p>Light Requirements: <%= @plant.light %></p>
+    <p>Water Requirements: <%= @plant.water %></p>
+    <p>Date Last Watered: <%= @plant.last_date %></p> 
+
+    <form method="post" action="/plants/<%=@plant.id%>">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <button type="submit">My Plant Died.</button>
+    </form> <br>
+    <button type="submit" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';">Edit Plant</button> <br>
+</div>
+
+<div class="sidebar"> 
+<h5> Here is the sidebar content. </h5>
+<p>Content!!</p>
+</div>
