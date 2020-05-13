@@ -9,6 +9,7 @@
 </div>
 
 <div class="body"> 
+  <h4><%= @current_user.username %>'s Wishlist</h4>
   <ul>
     <% @current_user.wishlist.each do |item| %>
       <li> <a href="/wishlist/<%=item.id%>"> <%= item.item_name %> </a></li>

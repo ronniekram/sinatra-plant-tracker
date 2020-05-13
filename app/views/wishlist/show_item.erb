@@ -18,17 +18,17 @@
 </div>
 
 <div class="sidebar"> 
-  <%= @item.item_name %>
-    <div style="float: left; width: 50%">
+  <h3><%= @item.item_name %></h3>
+    <div class="button-left">
       <form method="post" action="/wishlist/<%=@item.id%>">
         <input id="hidden" type="hidden" name="_method" value="DELETE">
-        <button type="submit" class="side">Remove From Wishlist</button>
+        <button type="submit">Remove From Wishlist</button>
       </form>
     </div>
-  <div style="float: right; width: 50%">
+  <div class="button-right">
     <form method="post" action="/wishlist-create/<%=@item.id%>">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="side">Add to My Plants</button>
+      <button type="submit">Add to My Plants</button>
     </form>
   </div>
 </div>

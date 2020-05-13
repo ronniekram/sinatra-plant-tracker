@@ -24,14 +24,19 @@
 </div>
 
 <div class="sidebar"> 
-    <h5><%= @plant.name %></h5>
+    <h3><%= @plant.name %></h3>
     <p>Light Requirements: <%= @plant.light %></p>
     <p>Water Requirements: <%= @plant.water %></p>
     <p>Date Last Watered: <%= @plant.last_date %></p> 
 
+  <div class="button-left">
     <form method="post" action="/plants/<%=@plant.id%>">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <button type="submit">My Plant Died</button>
-    </form> <br>
+      <button type="submit">Delete Plant</button>
+    </form>
+  </div>
+
+  <div class="button-right">
     <button type="submit" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';">Edit Plant</button>
+  </div>
 </div>
