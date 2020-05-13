@@ -8,13 +8,22 @@
   </div>
 
   <div class="right">
-    <h3><a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h3>
+    <a href="/plants">My Plants</a> | <a href="/wishlist">My Wishlist</a> | <a href="/logout">Logout</a>
   </div>
 </div>
 
 <div class="body"> 
-  <h3> Change Plant Information: </h3>
+    <h4><%= @current_user.username %>'s Plants</h4>
+    <p>Choose a plant to see more information!</p>
+    <ul>
+      <% @current_user.plants.each do |plant| %>
+        <li><a href="/plants/<%= plant.id%>"> <%= plant.name %></a></li>
+      <% end %>    
+    </ul> <br>
+    <button type="submit" onclick="window.location.href = '/plants/new';">Add a Plant</button>
+</div>
 
+<div class="sidebar"> 
     <h5><%= @plant.name %></h5>
     <p>Light Requirements: <%= @plant.light %></p>
     <p>Water Requirements: <%= @plant.water %></p>
@@ -22,12 +31,7 @@
 
     <form method="post" action="/plants/<%=@plant.id%>">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <button type="submit">My Plant Died.</button>
+      <button type="submit">My Plant Died</button>
     </form> <br>
-    <button type="submit" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';">Edit Plant</button> <br>
-</div>
-
-<div class="sidebar"> 
-<h5> Here is the sidebar content. </h5>
-<p>Content!!</p>
+    <button type="submit" onclick="window.location.href = '/plants/<%=@plant.id%>/edit';">Edit Plant</button>
 </div>

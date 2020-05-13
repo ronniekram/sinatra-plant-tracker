@@ -4,7 +4,7 @@
   </div>
 
   <div class="right">
-    <h3><a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h3>
+    <a href="/plants">My Plants</a> | <a href="/wishlist">My Wishlist</a> | <a href="/logout">Logout</a>
   </div>
 </div>
 
@@ -19,14 +19,16 @@
 
 <div class="sidebar"> 
   <%= @item.item_name %>
-
-  <form method="post" action="/wishlist/<%=@item.id%>">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <button type="submit">Remove From Wishlist</button>
-  </form>
-
-  <form method="post" action="/wishlist-create/<%=@item.id%>">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <button type="submit">Add to My Plants</button>
-  </form>
+    <div style="float: left; width: 50%">
+      <form method="post" action="/wishlist/<%=@item.id%>">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="side">Remove From Wishlist</button>
+      </form>
+    </div>
+  <div style="float: right; width: 50%">
+    <form method="post" action="/wishlist-create/<%=@item.id%>">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="side">Add to My Plants</button>
+    </form>
+  </div>
 </div>

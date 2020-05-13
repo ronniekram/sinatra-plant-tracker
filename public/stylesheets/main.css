@@ -8,6 +8,7 @@
   html, body {
     height: 100%;
     width: 100%;
+    display: grid;
   }
 
   body {
@@ -39,11 +40,17 @@
 
   p {
     margin-bottom: 18px;
+    line-height: 20px;
   }
 
   a {
     text-decoration: none;
     color: #404f3b;
+    font-size: 14px;
+  }
+
+  a:hover {
+    letter-spacing: 4px;
   }
 
   ul {
@@ -51,8 +58,15 @@
   }
 
   button {
-    background: #d5dfe5;
-    color: #404f3b;
+    background: #c9b1bd;
+    color: #111D13;
+    border: 1px solid #111D13;
+    padding: 1%;
+  }
+
+  button.side {
+    background: #c9b1bd;
+    color: #111D13;
     border: 1px solid #111D13;
     padding: 1%;
   }
@@ -126,11 +140,20 @@
     opacity: 0.7;
   }
 
+  .sidebar img {
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.8;
+    border: 1px solid #111D13;
+  }
+
   .left {
     width: 50%;
     height: auto;
     float: left;
     text-align: left;
+    margin: auto;
   }
 
   .right {
@@ -138,6 +161,8 @@
     height: auto;
     float: right;
     text-align: right;
+    font-size: 12px;
+    margin: auto;
   }
 
 

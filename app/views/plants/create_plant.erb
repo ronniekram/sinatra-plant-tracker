@@ -4,22 +4,29 @@
   </div>
 
   <div class="right">
-    <h3><a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h3>
+    <a href="/plants">My Plants</a> | <a href="/wishlist">My Wishlist</a> | <a href="/logout">Logout</a>
   </div>
 </div>
 
 <div class="body"> 
-  <h3>Add a plant and care information: </h3>
+  <h4><%= @current_user.username %>'s Plants</h4>
+    <p>Choose a plant to see more information!</p>
+    <ul>
+      <% @current_user.plants.each do |plant| %>
+        <li><a href="/plants/<%= plant.id%>"> <%= plant.name %></a></li>
+      <% end %>    
+    </ul> <br>
+    <button type="submit" onclick="window.location.href = '/plants/new';">Add a Plant</button>
+
+</div>
+
+<div class="sidebar"> 
+  <h5>Add a plant and care information: </h5>
   <form action="/plants" method="POST">
     <p>Plant Name: <input type="text" name="name" required></p>
     <p>Light: <input type="text" name="light"></p>
     <p>Water: <input type="text" name="water"></p>
     <p>Last Date Watered: <input type="date" name="last_date"> </p>
-    <button type="submit">Add Plant!</button>
-  </form> <br>
-</div>
-
-<div class="sidebar"> 
-<h5> Here is the sidebar content. </h5>
-<p>Content!!</p>
+    <button type="submit" class="side">Add Plant!</button>
+  </form>
 </div>

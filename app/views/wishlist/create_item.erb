@@ -4,19 +4,24 @@
   </div>
 
   <div class="right">
-    <h3><a href="/plants">My Plants</a> <a href="/wishlist">My Wishlist</a> </h3>
+    <a href="/plants">My Plants</a> | <a href="/wishlist">My Wishlist</a> | <a href="/logout">Logout</a>
   </div>
 </div>
 
 <div class="body"> 
-  <h3>Add to your wishlist: </h3>
-  <form action="/wishlist" method="POST">
-    <p>Plant Name: <input type="text" name="item_name"></p>
-    <button type="submit">Add Plant!</button>
-  </form> <br>
+  <ul>
+    <% @current_user.wishlist.each do |item| %>
+      <li> <a href="/wishlist/<%=item.id%>"> <%= item.item_name %> </a></li>
+    <% end %>
+  </ul> <br>
+  <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
+
 </div>
 
 <div class="sidebar"> 
-<h5> Here is the sidebar content. </h5>
-<p>Content!!</p>
+    <h5>Add to your wishlist: </h5>
+  <form action="/wishlist" method="POST">
+    <p>Plant Name: <input type="text" name="item_name"></p>
+    <button type="submit" class="side">Add Plant!</button>
+  </form>
 </div>
