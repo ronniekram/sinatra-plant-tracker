@@ -7,21 +7,20 @@ class UsersController < ApplicationController
     end 
   end 
 
-  post '/signup' do
+  post '/signup' do 
     user = User.new(params)
+  
     if params.any? == ""
       redirect '/signup'
+    elsif user.username 
+      redirect '/login'
+    elsif user.email
+      redirect '/login'
     elsif user.save
       session[:user_id] = user.id
       redirect to '/plants'
-    else
-      if user.username
-        redirect '/signup'
-      elsif user.email
-        redirect '/signup'
-      end
-    end
-  end
+    end 
+  end 
 
   get '/login' do 
     if !logged_in?
