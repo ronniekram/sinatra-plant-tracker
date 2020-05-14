@@ -10,20 +10,14 @@ class UsersController < ApplicationController
   post '/signup' do 
     user = User.new(params)
   
-    if params.any? == ""
-      @error = "All fields required."
-      redirect '/signup'
-    elsif user.username
-      @error = "An account with this username already exists." 
-      redirect '/login'
-    elsif user.email
-      @error = "An account with this email address already exists." 
-      redirect '/login'
-    elsif user.save
-      session[:user_id] = user.id
-      redirect to '/plants'
+    if user.save 
+      session[:user_id] = user.id 
+      redirect '/plants'
+    else  
+      @errors = user.errors.full_messages.uniq
+      #redirect '/signup'
     end 
-  end
+  end 
 
   get '/login' do 
     if !logged_in?
@@ -43,7 +37,6 @@ class UsersController < ApplicationController
     else 
       redirect '/login'
     end 
-
   end 
 
   get '/logout' do

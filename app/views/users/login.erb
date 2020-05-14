@@ -5,6 +5,12 @@
 
 <div class="body"> 
   <h3>Login to Eleplant!</h3>
+
+    <%if @error %>
+      <div class="alert alert-danger" role="alert">
+        <%= @error %>
+      </div>
+    <%end%>
   <form method="post" action="/login">
     Username: <input type="text" name="username"><br>
     Password: <input type="password" name="password"><br>

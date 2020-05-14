@@ -6,16 +6,15 @@
 <div class="body"> 
   <h3>Sign Up For Eleplant!</h3>
 
-  <% if @error %>
-    <div class="alert alert-danger" role="alert">
-      <h3> Error(s): </h3>
-        <strong><p>
-          <ul>
-            <li> <%= error %> </li>
-          </ul>
-        </p></strong>
-    </div>
-  <% end %>
+    <% if @errors %>
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <% @errors.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <form action="/signup" method="POST">
     <p>Name: <input type="text" name="username"></p>
     <p>Email: <input type="email" name="email"></p>
