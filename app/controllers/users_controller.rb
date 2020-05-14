@@ -8,14 +8,14 @@ class UsersController < ApplicationController
   end 
 
   post '/signup' do 
-    user = User.new(params)
+    @user = User.new(params)
   
-    if user.save 
+    if @user.save 
       session[:user_id] = user.id 
       redirect '/plants'
     else  
-      @errors = user.errors.full_messages.uniq
-      #redirect '/signup'
+      @errors = @user.errors.full_messages.uniq
+      erb :'/users/new_user'
     end 
   end 
 
@@ -28,13 +28,14 @@ class UsersController < ApplicationController
   end
 
   post '/login' do 
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
         redirect '/plants'
     else 
-      if user == nil
+      if @user == nil
         @error = "Invalid username/password."
+        erb :'/users/login'
       end
     end 
   end 
