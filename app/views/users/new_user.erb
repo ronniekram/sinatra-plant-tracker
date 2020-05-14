@@ -7,11 +7,12 @@
 
     <% if @errors %>
       <div class="error">
-        <ul>
+      <strong><p> Error(s): </p></strong>
           <% @errors.each do |error| %>
-            <li><%= error %></li>
+            <ul>
+              <li><%= error %></li>
+            </ul>
           <% end %>
-        </ul>
       </div>
     <% end %>
 

@@ -63,7 +63,7 @@
     letter-spacing: 4px;
   }
 
-  li {
+  ul {
     list-style-type: square;
     font-size: 16px;
   }
@@ -194,7 +194,12 @@
     border: 1px solid #111D13; 
     width: 50%;
     height: auto;
-    
+    margin: .75rem;
+    padding: .5rem;
+  }
+
+  .error ul{
+    list-style-type: none;
   }
 
 
