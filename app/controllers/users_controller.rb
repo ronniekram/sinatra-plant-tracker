@@ -11,15 +11,14 @@ class UsersController < ApplicationController
     user = User.new(params)
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect '/signup'
+    elsif user.save
+      session[:user_id] = user.id
+      redirect to '/plants'
     else
       if user.username
         redirect '/signup'
       elsif user.email
         redirect '/signup'
-      else
-        user.save
-        session[:user_id] = user.id
-        redirect to '/plants'
       end
     end
   end
