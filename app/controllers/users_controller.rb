@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   post '/signup' do
     user = User.new(params)
     if params.any? == ""
-      flash[:alert] = "All fields must be filled out."
       redirect '/signup'
     elsif user.save
       session[:user_id] = user.id
@@ -38,10 +37,8 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         redirect '/plants'
     elsif params.any? == ""
-      flash[:alert] = "All fields must be filled out."
       redirect '/login'
     else 
-      flash[:alert] = "That didn't work. Please try logging in again."
       redirect '/login'
     end 
 
@@ -49,7 +46,6 @@ class UsersController < ApplicationController
 
   get '/logout' do
     if logged_in? 
-      flash[:alert] = "You've been logged out."
       session.destroy
       redirect '/'
     else

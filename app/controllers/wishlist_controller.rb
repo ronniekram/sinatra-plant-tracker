@@ -1,7 +1,6 @@
 class WishlistController < ApplicationController 
   get '/wishlist' do 
     if logged_in?
-      #@wishlist = Wishlist.all
       @wishlist = current_user.wishlist
       erb :'/wishlist/show' 
     else 
@@ -23,7 +22,6 @@ class WishlistController < ApplicationController
       if params[:item_name] !="" && item.save
         redirect '/wishlist'
       else
-        flash[:alert] = "Item not added. Please try again."
         redirect '/wishlist/new'  
       end 
     else 
@@ -52,7 +50,6 @@ class WishlistController < ApplicationController
         item.delete
         redirect '/wishlist'
       else 
-        flash[:alert] = "Hey! That isn't your wishlist! Shoo!"
         redirect '/wishlist'
       end
     else 
@@ -71,7 +68,6 @@ class WishlistController < ApplicationController
         item.delete
         redirect "/plants/#{plant.id}"
       else 
-        flash[:alert] = "Hey! That isn't your wishlist! Shoo!"
         redirect '/wishlist'
       end
     else 
