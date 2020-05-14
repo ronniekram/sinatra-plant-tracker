@@ -54,6 +54,10 @@
     color: #404f3b;
     font-size: 14px;
   }
+  .body a {
+    font-size: 16px;
+    font-weight: bold;
+  }
 
   a:hover {
     letter-spacing: 4px;

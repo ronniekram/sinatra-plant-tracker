@@ -9,13 +9,18 @@
 </div>
 
 <div class="body"> 
-  <h4><%= @current_user.username %>'s Wishlist</h4>
-  <ul>
-    <% @current_user.wishlist.each do |item| %>
-      <li> <a href="/wishlist/<%=item.id%>"> <%= item.item_name %> </a></li>
-    <% end %>
-  </ul> <br>
-  <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
+  <h3><%= @current_user.username %>'s wishlist:</h3>
+  <% if @current_user.wishlist.empty? %>
+    <p> You don't have any plants in your wishlist yet. <a href="/wishlist/new">Add one!</a> </p>
+  <% else %>
+    <p>Choose a plant to see more information!</p>
+    <ul>
+      <% @current_user.wishlist.each do |item| %>
+        <li><a href="/wishlist/<%= wishlist.id%>"> <%= wishlist.item_name %></a></li>
+      <% end %>    
+    </ul> <br>
+    <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
+  <% end %>
 </div>
 
 <div class="sidebar"> 

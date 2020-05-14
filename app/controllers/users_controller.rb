@@ -32,10 +32,10 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect '/plants'
-    elsif params.any? == ""
-      redirect '/login'
     else 
-      redirect '/login'
+      if user == nil
+        @error = "Invalid username/password."
+      end
     end 
   end 
 

@@ -18,7 +18,6 @@ class PlantsController < ApplicationController
 
   post '/plants' do
     if logged_in?
-      #plant = current_user.plants.build(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
       plant = current_user.plants.build(params)
         if plant.save
           redirect "/plants/#{plant.id}"
