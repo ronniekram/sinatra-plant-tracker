@@ -189,6 +189,13 @@
     margin: auto;
   }
 
+  .error {
+    width: 50%;
+    height: auto;
+    background: #d5dfe5;
+    border: 1px solid #111D13; 
+  }
+
 
   @media screen and (max-width: 600px) {
     .wrapper {
