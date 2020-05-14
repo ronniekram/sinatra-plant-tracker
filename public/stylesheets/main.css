@@ -194,12 +194,14 @@
     border: 1px solid #111D13; 
     width: 50%;
     height: auto;
-    margin: .75rem;
+    margin: .6rem;
     padding: .5rem;
+    display: table-cell;
   }
 
   .error ul{
     list-style-type: none;
+    line-height: 1rem;
   }
 
 
