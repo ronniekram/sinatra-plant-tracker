@@ -11,16 +11,19 @@ class UsersController < ApplicationController
     user = User.new(params)
   
     if params.any? == ""
+      @error = "All fields required."
       redirect '/signup'
-    elsif user.username 
+    elsif user.username
+      @error = "An account with this username already exists." 
       redirect '/login'
     elsif user.email
+      @error = "An account with this email address already exists." 
       redirect '/login'
     elsif user.save
       session[:user_id] = user.id
       redirect to '/plants'
     end 
-  end 
+  end
 
   get '/login' do 
     if !logged_in?

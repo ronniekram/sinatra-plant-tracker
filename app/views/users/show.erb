@@ -9,7 +9,11 @@
 </div>
 
 <div class="body"> 
-  <h4><%= @current_user.username %>'s Plants</h4>
+  <h4><%= @current_user.username %>'s plants</h4>
+  <% if @current_user.plants.empty?%>
+    <p> Add a plant to get started: 
+    <button type="submit" onclick="window.location.href = '/plants/new';">Add a Plant</button> </p>
+  <% else %>
     <p>Choose a plant to see more information!</p>
     <ul>
       <% @current_user.plants.each do |plant| %>
@@ -17,6 +21,7 @@
       <% end %>    
     </ul> <br>
     <button type="submit" onclick="window.location.href = '/plants/new';">Add a Plant</button>
+  <% end %>
 </div>
 
 <div class="sidebar"> 
