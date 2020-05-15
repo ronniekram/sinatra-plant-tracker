@@ -192,11 +192,10 @@
   .error {
     background: #d5dfe5;
     border: 1px solid #111D13; 
-    width: 50%;
+    width: 70%;
     height: auto;
-    margin: .6rem;
-    padding: .5rem;
-    display: table-cell;
+    margin: .5rem auto;
+    padding: .6rem;
   }
 
   .error ul{

@@ -61,7 +61,7 @@ class PlantsController < ApplicationController
     
     if logged_in?
       if plant.user_id == current_user.id
-        plant.update(params)
+        plant.update(name: params[:name], light: params[:light], water: params[:water], last_date: params[:last_date])
         redirect "/plants/#{plant.id}"
       else 
         redirect '/plants'
