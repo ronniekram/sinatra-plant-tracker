@@ -10,12 +10,13 @@
 
 <div class="body"> 
   <h3> <%= @current_user.username %>'s plants</h3>
-  <ul>
     <% @current_user.plants.each do |plant| %>
-      <li> <a href="/plants/<%= plant.id %>"> <%= plant.name %> </a></li>
+      <ul>
+        <li> <a href="/plants/<%= plant.id %>"> <%= plant.name %> </a></li>
+      </ul>
     <% end %>
-  </ul> <br>
-  <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
+      <br>
+  <button type="submit" onclick="window.location.href='/wishlist/new';">Add a Plant</button>
 </div>
 
 <div class="sidebar"> 
@@ -23,10 +24,10 @@
 
   <form method="post" action="/plants/<%=@plant.id%>">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <p>Plant Name: <input type="text" name="name" value="<%= @plant.name %>" required></p>
-    <p>Light: <input type="text" name="light" value="<%= @plant.light %>"></p>
-    <p>Water: <input type="text" name="water" value="<%= @plant.water %>"></p>
-    <p>Last Date Watered: <input type="date" name="last_date" value="<%= @plant.last_date %>"></p>
+    <p>Plant Name: </p> <input type="text" name="name" value="<%= @plant.name %>" required>
+    <p>Light: </p><input type="text" name="light" value="<%= @plant.light %>">
+    <p>Water: </p><input type="text" name="water" value="<%= @plant.water %>">
+    <p>Last Date Watered: </p><input type="date" name="last_date" value="<%= @plant.last_date %>">
     <button type="submit">Submit Change</button>
   </form>
 </div>
