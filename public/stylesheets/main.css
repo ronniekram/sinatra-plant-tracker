@@ -202,7 +202,23 @@
     line-height: 1rem;
   }
 
+  .button-left {
+    width: 50%;
+    height: auto;
+    float: left;
+    text-align: center;
+    margin: auto;
+  }
 
+  .button-right {
+    width: 50%;
+    height: auto;
+    float: right;
+    text-align: center;
+    margin: auto;
+  }
+
+  
   @media screen and (max-width: 600px) {
     .wrapper {
       -moz-box-shadow: none;
