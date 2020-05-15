@@ -66,7 +66,7 @@ class WishlistController < ApplicationController
     if logged_in?
       if item && plant.save
         item.delete
-        redirect "/plants"
+        redirect "/plants/#{plant.id}"
       else 
         redirect '/wishlist'
       end
