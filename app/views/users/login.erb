@@ -7,9 +7,10 @@
   <h3>Login to Eleplant!</h3>
 
     <%if @error %>
-      <div class="alert alert-danger" role="alert">
-        <hr>
-        <%= @error %>
+      <div class="error">
+        <ul>
+          <li> <%= @error %> </li>
+        </ul>
       </div>
     <%end%>
   <form method="post" action="/login">

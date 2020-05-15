@@ -54,6 +54,7 @@
     color: #404f3b;
     font-size: 14px;
   }
+
   .body a {
     font-size: 16px;
     font-weight: bold;
@@ -63,9 +64,10 @@
     letter-spacing: 4px;
   }
 
-  ul {
+  .body ul {
     list-style-type: square;
     font-size: 16px;
+    font-weight: bold;
   }
 
   button {
@@ -191,11 +193,12 @@
 
   .error {
     background: #d5dfe5;
-    border: 1px solid #111D13; 
-    width: 70%;
+    border-radius: 10px; 
+    width: auto;
     height: auto;
     margin: .5rem auto;
     padding: .6rem;
+    text-align: center;
   }
 
   .error ul{
