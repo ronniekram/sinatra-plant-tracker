@@ -41,7 +41,7 @@
 
   p {
     margin-bottom: 18px;
-    line-height: 20px;
+    line-height: 30px;
     font-size: 16px;
   }
 
@@ -53,6 +53,7 @@
     text-decoration: none;
     color: #404f3b;
     font-size: 14px;
+    line-height: 25px;
   }
 
   .body a {
@@ -127,7 +128,7 @@
 
   .nav { 
     grid-area: 3 / 1 / 4 / 6;
-    width: 100%;
+    width: 95%;
     height: auto; 
     border-bottom: 2px solid #404f3b;
     height: auto;
@@ -135,7 +136,11 @@
     font-family: 'Rubik', sans-serif;
     text-align: left;
     margin: auto;
-    padding: 0 0 10px 10px;
+    padding: 0 0 5px 10px;
+  }
+
+  .nav h3 {
+   margin: auto; 
   }
 
   .nav a {
