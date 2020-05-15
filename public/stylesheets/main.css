@@ -106,7 +106,19 @@
     overflow: hidden; 
   }
 
+  .header h1 {
+    position: absolute;
+    top: 14.5rem;
+    float: right;
+    margin: auto;
+    padding: .75rem;
+    color: whitesmoke;
+    opacity: 85%;
+    letter-spacing: 10px;
+  }
+
   .header img {
+    position: relative;
     border-radius: 30px;
     max-width: 100%;
     height: auto;
@@ -115,8 +127,20 @@
 
   .nav { 
     grid-area: 3 / 1 / 4 / 6;
+    width: 100%;
     height: auto; 
     border-bottom: 2px solid #404f3b;
+    height: auto;
+    float: left;
+    font-family: 'Rubik', sans-serif;
+    text-align: left;
+    margin: auto;
+    padding: 0 0 10px 10px;
+  }
+
+  .nav a {
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
   }
 
   .body { 
@@ -156,39 +180,6 @@
     margin-top: 20px;
     padding-top: 10px;
     height: auto;
-  }
-
-  .left {
-    width: 50%;
-    height: auto;
-    float: left;
-    text-align: left;
-    margin: auto;
-  }
-
-  .right {
-    width: 50%;
-    height: auto;
-    float: right;
-    text-align: right;
-    font-size: 12px;
-    margin: auto;
-  }
-
-  .button-left {
-    width: 50%;
-    height: auto;
-    float: left;
-    text-align: center;
-    margin: auto;
-  }
-
-  .button-right {
-    width: 50%;
-    height: auto;
-    float: right;
-    text-align: center;
-    margin: auto;
   }
 
   .error {
