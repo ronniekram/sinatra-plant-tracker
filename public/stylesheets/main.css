@@ -171,7 +171,7 @@
     padding: 10px;
     margin-top: 15px;
     margin-right: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     width: 85%; /* 240px / 800px */
     height: auto;
   }
@@ -182,6 +182,12 @@
     height: auto;
     opacity: 0.8;
     border: 1px solid #111D13;
+  }
+
+  .side-info {
+    margin: auto;
+    padding-left: 7px;
+    padding-right: 7px;
   }
 
   .footer { 
