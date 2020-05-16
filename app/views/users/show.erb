@@ -10,7 +10,7 @@
     <p>Choose a plant to see more information!</p>
     <ul>
       <% @current_user.plants.each do |plant| %>
-        <li><a href="/plants/<%= plant.id%>"> <%= plant.name %></a></li>
+        <li> &#9788; <a href="/plants/<%= plant.id%>"> <%= plant.name %></a></li>
       <% end %>    
     </ul> <br>
     <button type="submit" onclick="window.location.href = '/plants/new';">Add a Plant</button>

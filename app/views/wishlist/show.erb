@@ -10,7 +10,7 @@
     <p>Choose a plant to see more information!</p>
     <ul>
       <% @current_user.wishlist.each do |item| %>
-        <li><a href="/wishlist/<%= item.id%>"> <%= item.item_name %></a></li>
+        <li> &#9788; <a href="/wishlist/<%= item.id%>"> <%= item.item_name %></a></li>
       <% end %>    
     </ul> <br>
     <button type="submit" onclick="window.location.href = '/wishlist/new';">Add a Plant</button>
