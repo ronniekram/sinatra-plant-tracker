@@ -169,9 +169,7 @@
     border-radius: 10px;
     float: right;
     padding: 10px;
-    margin-top: 15px;
-    margin-right: 10px;
-    margin-bottom: 25px;
+    margin: auto;
     width: 85%; /* 240px / 800px */
     height: auto;
   }
