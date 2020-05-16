@@ -16,11 +16,13 @@
 
 <div class="sidebar"> 
   <h3>Add a plant and care information: </h3>
-  <form action="/plants" method="POST">
-    <p>Plant Name: <input type="text" name="name" required></p>
-    <p>Light: <input type="text" name="light"></p>
-    <p>Water: <input type="text" name="water"></p>
-    <p>Last Date Watered: <input type="date" name="last_date"> </p>
-    <button type="submit" class="side">Add Plant!</button>
-  </form>
+  <div class="side-info">
+    <form action="/plants" method="POST">
+      <p>Plant Name: <input type="text" name="name" required></p>
+      <p>Light: <input type="text" name="light"></p>
+      <p>Water: <input type="text" name="water"></p>
+      <p>Last Date Watered: <input type="date" name="last_date"> </p>
+      <button type="submit" class="side">Add Plant!</button>
+    </form>
+  </div>
 </div>

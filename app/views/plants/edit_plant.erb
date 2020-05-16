@@ -15,13 +15,14 @@
 
 <div class="sidebar"> 
   <h3> Change Plant Information: </h3>
-
-  <form method="post" action="/plants/<%=@plant.id%>">
-    <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <p>Plant Name: </p> <input type="text" name="name" value="<%= @plant.name %>" required>
-    <p>Light: </p><input type="text" name="light" value="<%= @plant.light %>">
-    <p>Water: </p><input type="text" name="water" value="<%= @plant.water %>">
-    <p>Last Date Watered: </p><input type="date" name="last_date" value="<%= @plant.last_date %>">
-    <button type="submit">Submit Change</button>
+  <div class="side-info">
+    <form method="post" action="/plants/<%=@plant.id%>">
+      <input id="hidden" type="hidden" name="_method" value="PATCH">
+      <p>Plant Name: </p> <input type="text" name="name" value="<%= @plant.name %>" required>
+      <p>Light: </p><input type="text" name="light" value="<%= @plant.light %>">
+      <p>Water: </p><input type="text" name="water" value="<%= @plant.water %>">
+      <p>Last Date Watered: </p><input type="date" name="last_date" value="<%= @plant.last_date %>">
+      <button type="submit">Submit Change</button>
   </form>
+  </div>
 </div>
