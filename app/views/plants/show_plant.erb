@@ -15,9 +15,9 @@
 
 <div class="sidebar"> 
     <h3><%= @plant.name %></h3>
-    <p>Light Requirements: <%= @plant.light %></p>
-    <p>Water Requirements: <%= @plant.water %></p>
-    <p>Date Last Watered: <%= @plant.last_date %></p> 
+    <p><strong>Light Requirements:</strong> <%= @plant.light %></p>
+    <p><strong>Water Requirements:</strong> <%= @plant.water %></p>
+    <p><strong>Date Last Watered:</strong> <%= @plant.last_date %></p> 
 
   <div class="button-left">
     <form method="post" action="/plants/<%=@plant.id%>">
