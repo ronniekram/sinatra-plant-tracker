@@ -66,7 +66,7 @@
   }
 
   .body ul {
-    list-style-type: square;
+    list-style-type: none;
     font-size: 16px;
     font-weight: bold;
   }
@@ -154,8 +154,9 @@
     float: left;
     width: 90%; /* 480px / 800px */
     height: auto;
-    padding: 10px;
+    padding: 15px;
     margin-top: 10px;
+    margin-left: 10px;
     margin-bottom: 20px;
     overflow: hidden;
    }
@@ -165,10 +166,11 @@
     background: #d5dfe5;
     border: 1px solid #111D13;
     float: right;
-    padding: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 90%; /* 240px / 800px */
+    padding: 10px;
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    width: 85%; /* 240px / 800px */
     height: auto;
   }
 
