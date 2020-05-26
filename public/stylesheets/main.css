@@ -202,6 +202,22 @@
     height: auto;
   }
 
+  .footer-text {
+    display: inline-block;
+    float: right;
+    margin: auto;
+  }
+
+  .footer-text p {
+    font-size: 14px;
+  }
+
+  .footer-image {
+    display: inline-block;
+    float: left;
+    margin: auto;
+  }
+
   .error {
     background: #d5dfe5;
     border-radius: 10px; 
