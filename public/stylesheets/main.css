@@ -142,7 +142,7 @@
     font-family: 'Rubik', sans-serif;
     text-align: left;
     margin: auto;
-    padding: 0 0 5px 10px;
+    padding: 0 0 5px 5px;
   }
 
   .nav h3 {
@@ -152,6 +152,8 @@
   .nav a {
     font-size: 18px;
     font-family: 'Rubik', sans-serif;
+    margin: 10px auto;
+    padding: 10px 0;
   }
 
   .body { 
