@@ -10,7 +10,7 @@ class PlantsController < ApplicationController
 
   get '/plants/new' do 
     if logged_in?
-      erb :'/plants/create_plant'
+      erb :'/plants/new'
     else 
       redirect '/login'
     end 
@@ -33,7 +33,7 @@ class PlantsController < ApplicationController
     if logged_in?
       @plant = current_user.plants.find_by_id(params[:id])
       if @plant
-        erb :'/plants/show_plant'
+        erb :'/plants/show'
       else 
         redirect "/plants"
       end 
@@ -46,7 +46,7 @@ class PlantsController < ApplicationController
     if logged_in?
       @plant = current_user.plants.find_by_id(params[:id])
       if @plant.user_id == current_user.id
-        erb :'/plants/edit_plant'
+        erb :'/plants/edit'
       else  
         redirect '/plants'
       end

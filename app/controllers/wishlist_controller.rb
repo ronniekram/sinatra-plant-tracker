@@ -10,7 +10,7 @@ class WishlistController < ApplicationController
   
   get '/wishlist/new' do
     if logged_in?
-      erb :'/wishlist/create_item'
+      erb :'/wishlist/new'
     else 
       redirect '/login'
     end  

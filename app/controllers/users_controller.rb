@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect '/plants'
     else 
-      erb :'/users/new_user' 
+      erb :'/users/new' 
     end 
   end 
 
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect '/plants'
     else  
       @errors = @user.errors.full_messages.uniq
-      erb :'/users/new_user'
+      erb :'/users/new'
     end 
   end 
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     if logged_in? 
-      session.destroy
+      session.clear
       redirect '/'
     else
       redirect '/'
