@@ -13,7 +13,6 @@
 
   body {
     background-color: #c9b1bd;
-    background-image: url("../images/bg.png");
     color: black;
     font-family: 'helvetica';
     line-height: 18px;
@@ -112,7 +111,7 @@
   .header h1 {
     position: absolute;
     top: 14.5rem;
-    right: 15rem;
+    right: 13rem;
     float: right;
     margin: auto;
     padding: .75rem;
@@ -139,14 +138,16 @@
     border-bottom: 2px solid #404f3b;
     height: auto;
     float: left;
+    font-size: 18px;
     font-family: 'Rubik', sans-serif;
+    font-weight: 400;
     text-align: left;
     margin: auto;
     padding: 5px;
   }
 
   .nav h3 {
-    margin: 10px auto;
+    margin: auto;
   }
 
   .nav a {
