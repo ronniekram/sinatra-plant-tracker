@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :plants
-  has_many :wishlist
+  has_many :wishlists
   has_secure_password 
   
   validates :username, :email, :password, :presence => true

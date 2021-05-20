@@ -4,7 +4,7 @@
 
 <div class="body"> 
   <ul>
-    <% @current_user.wishlist.each do |item| %>
+    <% @current_user.wishlists.each do |item| %>
       <li> &#9788; <a href="/wishlist/<%=item.id%>"> <%= item.item_name %> </a></li>
     <% end %>
   </ul> <br>
@@ -13,7 +13,8 @@
 
 <div class="sidebar"> 
   <h3><%= @item.item_name %></h3>
-  <div class="side-info">
+  <% if @item.user_id == current_user.id %>
+      <div class="side-info">
       <div class="button-left">
         <form method="post" action="/wishlist/<%=@item.id%>">
           <input id="hidden" type="hidden" name="_method" value="DELETE">
@@ -27,4 +28,5 @@
       </form>
     </div>
   </div>
+  <% end %>
 </div>

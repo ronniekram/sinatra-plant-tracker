@@ -62,14 +62,8 @@ class PlantsController < ApplicationController
 
   private
 
-  def if_not_logged_in
-    if !logged_in?
-      redirect '/login'
-    end
-  end 
-
   def if_not_owner
-    if plant.user_id != current_user.id
+    if @plant.user_id != current_user.id || plant.user_id != current_user.id
       redirect '/plants'
     end
   end 

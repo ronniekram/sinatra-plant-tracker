@@ -42,30 +42,40 @@ class WishlistController < ApplicationController
     if_not_logged_in
     if_not_owner
 
-    item = Wishlist.find(params[:id])
+    @item = Wishlist.find(params[:id])
 
     if item
-      item.delete
+      @item.delete
     end
 
     redirect '/wishlist'
   end
 
   delete '/wishlist-create/:id' do 
+    @item = Wishlist.find(params[:id])
+
     if_not_logged_in
     if_not_owner
 
-    item = Wishlist.find(params[:id])
-    plant = current_user.plants.build(name: params[:name], user_id: params[:user_id])
-    plant.name = item.item_name
-    plant.user_id = item.user_id
+    plant = current_user.plants.build(name: params[:name])
+    plant.name = @item.item_name
+    plant.user_id = @item.user_id
 
-    if item && plant.save
-      item.delete
+    if @item && plant.save
+      @item.delete
       redirect "/plants/#{plant.id}"
     else 
       redirect '/wishlist'
     end
+
   end
+
+  private
+
+  def if_not_owner
+    if @item.user_id != current_user.id
+      redirect '/plants'
+    end
+  end 
 
 end 

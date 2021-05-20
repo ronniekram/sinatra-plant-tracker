@@ -28,16 +28,6 @@ class ApplicationController < Sinatra::Base
         redirect '/login'
       end
     end 
-  
-    def if_not_owner
-      if self.user_id != current_user.id
-        if self.instance_of? Plant
-          redirect '/plants'
-        elsif self.instance_of? Wishlist
-          redirect '/wishlist'
-        end
-      end
-    end 
 
   end
 
