@@ -39,13 +39,11 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
 
     if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect '/plants'
+      session[:user_id] = @user.id
+      redirect '/plants'
     else 
-      if @user == nil
-        @error = "Invalid username/password."
-        erb :'/users/login'
-      end
+      @error = "Invalid username/password."
+      erb :'/users/login'
     end 
 
   end 
@@ -54,10 +52,8 @@ class UsersController < ApplicationController
 
     if logged_in? 
       session.clear
-      redirect '/'
-    else
-      redirect '/'
     end
+    redirect '/'
     
   end
    

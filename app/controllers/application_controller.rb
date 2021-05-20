@@ -23,6 +23,22 @@ class ApplicationController < Sinatra::Base
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
 
+    def if_not_logged_in
+      if !logged_in?
+        redirect '/login'
+      end
+    end 
+  
+    def if_not_owner
+      if self.user_id != current_user.id
+        if self.instance_of? Plant
+          redirect '/plants'
+        elsif self.instance_of? Wishlist
+          redirect '/wishlist'
+        end
+      end
+    end 
+
   end
 
 end
